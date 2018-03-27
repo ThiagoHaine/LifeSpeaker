@@ -1,3 +1,10 @@
 <ion-content padding>
-<iframe style="border: 0" src="http://www.haine.com.br/thiago/glasses/"></iframe>
+<div style="margin: auto; width: 100%">
+
+<p style="text-align: center; padding-top: 130px;"><ion-icon style="font-size: 120px;" name="ios-sad-outline"></ion-icon><br>Parece que você não está usando o wi-fi no momento, não posso te deixar usar o aplicativo...<br>
+para mudar isto, vá nas configurações</p>
+</div>
+<div *ngIf="show">
+<iframe id="ifr" style="border: 0" src="http://www.haine.com.br/thiago/glasses/"></iframe>
+</div>
 </ion-content>

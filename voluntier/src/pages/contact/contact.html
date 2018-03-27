@@ -1,26 +1,32 @@
 <ion-content>
-
+<ul class="list">
   <ion-item>
     <ion-label>Funcionar em segundo plano</ion-label>
-    <ion-toggle [(ngModel)]="background"></ion-toggle>
+    <ion-toggle [(ngModel)]="background" (ionChange)="update()"></ion-toggle>
   </ion-item>
 
 
-  <ion-item>
-    <ion-label>Receber notificações</ion-label>
-    <ion-toggle [(ngModel)]="push"></ion-toggle>
+  <ion-item id="push">
+    <ion-label>Receber notificações de pedidos</ion-label>
+    <ion-toggle [(ngModel)]="push" (ionChange)="update()" [disabled]="!background"></ion-toggle>
+  </ion-item>
+
+  <ion-item id="pushbk">
+    <ion-label>Receber notificação de background</ion-label>
+    <ion-toggle [(ngModel)]="pushbk" (ionChange)="update()" [disabled]="!background"></ion-toggle>
   </ion-item>
 
   <ion-item>
     <ion-label>Funcionar com redes móveis</ion-label>
-    <ion-toggle [(ngModel)]="wifi"></ion-toggle>
+    <ion-toggle [(ngModel)]="wifi" (ionChange)="update()"></ion-toggle>
   </ion-item>
 
   <ion-item>
     <ion-label>Cor da interface</ion-label>
-    <ion-select [(ngModel)]="gender">
+    <ion-select [(ngModel)]="skin" (ionChange)="update()">
       <ion-option value="b">Clara</ion-option>
       <ion-option value="p">Escura</ion-option>
     </ion-select>
   </ion-item>
+</ul>
 </ion-content>
