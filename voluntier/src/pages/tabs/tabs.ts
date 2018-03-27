@@ -12,7 +12,7 @@ export class TabsPage {
   tab1Root = HomePage;
   tab2Root = AboutPage;
   tab3Root = ContactPage;
-
+  public col;
   constructor(private backgroundMode: BackgroundMode) {
 
   }
@@ -31,6 +31,7 @@ export class TabsPage {
   }
 
   public setBackground(){
+    this.col=localStorage.getItem("skin");
     //alert(this.backgroundMode.isActive());
     let on=this.stringToBoolean(localStorage.getItem("background"));
     if (on==true){

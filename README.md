@@ -11,13 +11,19 @@ Aplicativo do deficiente visual:<br>
 -Tentar enviar uma segunda foto durante o upload da primeira trava o envio da primeira<br>
 -Caso muitas respostas estejam sendo esperadas de uma só vez, o aplicativo trava<br>
 <br>
-Aplicativo do voluntrio:<br>
+Aplicativo do voluntário:<br>
 -Nenhum bug conhecido dentro das funções atuais<br>
 <br>
 Atualizaçes futuras:<br>
 Aplicativo do voluntário:<br>
+-Enviar notificações para o usuário sempre que um pedido de ajuda chegar(configurável)<br>
+<br>
+Changelog:<br>
+Aplicativo do voluntário:<br>
 -Rodar em segundo plano<br>
--Enviar notificações para o usuário sempre que um pedido de ajuda chegar(configurável)
+-Controle de notificação de execução<br>
+-Bloquear funcionamento com dados móveis(configurável)<br>
+-Tab "sobre"<br>
 <br>
 Link do site:<br>
 <a href="http://haine.com.br/thiago/glasses/index.php">Link aqui!</a>

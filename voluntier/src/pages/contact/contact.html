@@ -1,6 +1,6 @@
-<ion-content>
-<ul class="list">
-  <ion-item>
+<ion-content id="body">
+<ul class="list" id="ls">
+  <ion-item id="bk">
     <ion-label>Funcionar em segundo plano</ion-label>
     <ion-toggle [(ngModel)]="background" (ionChange)="update()"></ion-toggle>
   </ion-item>
@@ -16,16 +16,16 @@
     <ion-toggle [(ngModel)]="pushbk" (ionChange)="update()" [disabled]="!background"></ion-toggle>
   </ion-item>
 
-  <ion-item>
+  <ion-item id="wif">
     <ion-label>Funcionar com redes móveis</ion-label>
     <ion-toggle [(ngModel)]="wifi" (ionChange)="update()"></ion-toggle>
   </ion-item>
 
-  <ion-item>
+  <ion-item id="skin">
     <ion-label>Cor da interface</ion-label>
     <ion-select [(ngModel)]="skin" (ionChange)="update()">
-      <ion-option value="b">Clara</ion-option>
-      <ion-option value="p">Escura</ion-option>
+      <ion-option value="white">Clara</ion-option>
+      <ion-option value="dark">Escura</ion-option>
     </ion-select>
   </ion-item>
 </ul>
