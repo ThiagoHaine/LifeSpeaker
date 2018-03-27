@@ -1,17 +1,26 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+
+  <ion-item>
+    <ion-label>Funcionar em segundo plano</ion-label>
+    <ion-toggle [(ngModel)]="background"></ion-toggle>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Receber notificações</ion-label>
+    <ion-toggle [(ngModel)]="push"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Funcionar com redes móveis</ion-label>
+    <ion-toggle [(ngModel)]="wifi"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cor da interface</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="b">Clara</ion-option>
+      <ion-option value="p">Escura</ion-option>
+    </ion-select>
+  </ion-item>
 </ion-content>
