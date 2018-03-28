@@ -20,15 +20,41 @@ export class HomePage {
   public id:number;
   public n=1;
   public url="http://haine.com.br/thiago/glasses/";
+  public voiceBuffer = new Array(); 
+  public nBuffer=0;
+  public falando=false;
   constructor(private screenOrientation: ScreenOrientation, private transfer: FileTransfer,private tts: TextToSpeech,private file: File,private cameraPreview: CameraPreview,private fileOpener: FileOpener,private screenshot: Screenshot, public navCtrl: NavController, private androidFullScreen: AndroidFullScreen) {
-
+  
+  
   }
 
   ionViewDidLoad() {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    this.speak("Aponte o celular para o local desejado e pressione a tela para tirar uma foto");
+    this.addSpeak("Aponte o celular para o local desejado e pressione a tela para tirar uma foto");
     this.fullscreen();
     this.camera();
+  }
+
+  public speak(){
+    if (this.falando==false){
+      if (this.nBuffer<this.voiceBuffer.length){
+        this.nBuffer++;
+        let word=this.voiceBuffer[(this.nBuffer-1)];
+        this.falando=true;
+        this.tts.speak({
+          locale: 'pt-BR',
+          rate: 1,
+          text: word
+        }).then(() => {
+          this.falando=false;
+        }).catch((reason: any) => {
+          console.error('Error', reason);
+        });
+      }
+    }
+    setTimeout(() => {
+      this.speak();
+    }, 1000);
   }
 
   public cardinalToOrdinal(num:number){
@@ -80,18 +106,12 @@ export class HomePage {
     }
   }
 
-  public speak(word:string){
-    this.tts.stop();
-    this.tts.speak({
-      locale: 'pt-BR',
-      rate: 1,
-      text: word
-    }).then(() => {
-      console.log('Success');
-    }).catch((reason: any) => {
-      console.error('Error', reason);
-    });
+  public addSpeak(word:string){
+    this.voiceBuffer.push(word);
+    this.speak();
   }
+
+
 
   public wait(n,id){
     const fileTransfer: FileTransferObject = this.transfer.create();
@@ -103,13 +123,13 @@ export class HomePage {
             this.wait(n,id);
           }, 5000);
         }else{
-          this.speak("A "+this.cardinalToOrdinal(n)+" foto tirada mostrava "+fileStr);
+          this.addSpeak("A "+this.cardinalToOrdinal(n)+" foto tirada mostrava "+fileStr);
         }
       }).catch(err => {
-        alert("erro de leitura de resposta");
+        this.addSpeak("erro de leitura de resposta");
       });
     }).catch(err => {
-      alert("erro de download de resposta");
+      this.addSpeak("erro de download de resposta");
       setTimeout(() => {
         this.wait(n,id);
       }, 5000);
@@ -139,10 +159,10 @@ export class HomePage {
    
     // Use the FileTransfer to upload the image
     fileTransfer.upload(targetPath, url, options).then(data => {
-      this.speak("Agora é só aguardar uma resposta");
+      this.addSpeak("Agora é só aguardar uma resposta");
       this.wait(n,this.id);
     }, err => {
-      alert(JSON.stringify(err));
+      this.addSpeak("Erro de conexão");
     });
   }
 
@@ -167,7 +187,7 @@ let blob = new Blob(byteArrays, {type: contentType});
 this.file.createFile(this.file.dataDirectory, "photo"+n.toString()+".jpg", true);
 this.file.writeFile(this.file.dataDirectory, "photo"+n.toString()+".jpg", blob, {replace: true}).then(_ =>{
   this.uploadImage(n);
-}).catch(err => alert("erro de gravação"));
+}).catch(err => this.addSpeak("erro de gravação"));
 
 
 }
@@ -186,7 +206,7 @@ this.file.writeFile(this.file.dataDirectory, "photo"+n.toString()+".jpg", blob, 
             this.savebase64AsImageFile(imageData,"image/jpeg",this.n);
             this.n++;
           }, (err) => {
-            alert(err);
+            this.addSpeak("Erro ao fotografar");
           });
       }).catch(err =>{
           // picture options
@@ -201,7 +221,7 @@ this.file.writeFile(this.file.dataDirectory, "photo"+n.toString()+".jpg", blob, 
             this.savebase64AsImageFile(imageData,"image/jpeg",this.n);
             this.n++;
           }, (err) => {
-            alert(err);
+            this.addSpeak("Erro ao fotografar");
           });
       });
       
