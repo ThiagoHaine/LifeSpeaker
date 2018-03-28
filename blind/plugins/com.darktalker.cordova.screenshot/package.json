@@ -1,0 +1,65 @@
+{
+  "_from": "com.darktalker.cordova.screenshot",
+  "_id": "com.darktalker.cordova.screenshot@0.1.6",
+  "_inBundle": false,
+  "_integrity": "sha1-ZHpTRQ+WFyGbYyg/WGaF4nzblrM=",
+  "_location": "/com.darktalker.cordova.screenshot",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "com.darktalker.cordova.screenshot",
+    "name": "com.darktalker.cordova.screenshot",
+    "escapedName": "com.darktalker.cordova.screenshot",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/com.darktalker.cordova.screenshot/-/com.darktalker.cordova.screenshot-0.1.6.tgz",
+  "_shasum": "647a53450f9617219b63283f586685e27cdb96b3",
+  "_spec": "com.darktalker.cordova.screenshot",
+  "_where": "/home/thiago/blind",
+  "author": {
+    "name": "Hongbo LU"
+  },
+  "bugs": {
+    "url": "https://github.com/gitawego/cordova-screenshot/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com.darktalker.cordova.screenshot",
+    "platforms": [
+      "android",
+      "ios",
+      "osx"
+    ]
+  },
+  "deprecated": false,
+  "description": "screenshot PhoneGap Plugin for Android",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/gitawego/cordova-screenshot#readme",
+  "keywords": [
+    "cordova",
+    "screenshot",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-osx"
+  ],
+  "license": "MIT",
+  "name": "com.darktalker.cordova.screenshot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitawego/cordova-screenshot.git"
+  },
+  "version": "0.1.6"
+}

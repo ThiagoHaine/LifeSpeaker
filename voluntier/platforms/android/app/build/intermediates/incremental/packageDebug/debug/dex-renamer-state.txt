@@ -1,0 +1,7 @@
+#Wed Mar 28 02:49:20 BRT 2018
+base.0=/home/thiago/LifeSpeaker/voluntier/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/thiago/LifeSpeaker/voluntier/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes2.dex
+base.1=/home/thiago/LifeSpeaker/voluntier/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+file.0=/home/thiago/LifeSpeaker/voluntier/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex

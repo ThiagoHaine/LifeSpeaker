@@ -1,0 +1,60 @@
+{
+  "_from": "git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git",
+  "_id": "cordova-plugin-camera-preview@0.9.0",
+  "_inBundle": false,
+  "_location": "/cordova-plugin-camera-preview",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git",
+    "rawSpec": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git",
+    "saveSpec": "git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git",
+    "fetchSpec": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git#4c844ae72abc207a2d650d969bd822fccaa09991",
+  "_spec": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git",
+  "_where": "/home/thiago/blind",
+  "author": {
+    "name": "Weston Ganger",
+    "email": "westonganger@gmail.com",
+    "url": "solidfoundationwebdev.com"
+  },
+  "bugs": {
+    "url": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "cordova": "*"
+  },
+  "deprecated": false,
+  "description": "Cordova plugin that allows camera interaction from HTML code for showing camera preview below or on top of the HTML.",
+  "devDependencies": {},
+  "homepage": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview",
+  "keywords": [
+    "cordova",
+    "phonegap",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "android",
+    "ios",
+    "ionic",
+    "camera",
+    "cam",
+    "camera-preview",
+    "preview"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-camera-preview",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git"
+  },
+  "typings": "typescript/CameraPreview.d.ts",
+  "version": "0.9.0"
+}

@@ -3,7 +3,9 @@ import { BackgroundMode } from '@ionic-native/background-mode';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
-
+import { File } from '@ionic-native/file';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -13,7 +15,8 @@ export class TabsPage {
   tab2Root = AboutPage;
   tab3Root = ContactPage;
   public col;
-  constructor(private backgroundMode: BackgroundMode) {
+  public url="http://haine.com.br/thiago/glasses/";
+  constructor(private localNotifications: LocalNotifications,private backgroundMode: BackgroundMode,private file: File,private transfer: FileTransfer) {
 
   }
   ionViewDidLoad() {
@@ -41,6 +44,25 @@ export class TabsPage {
       this.backgroundMode.excludeFromTaskList();
     }else{
       this.backgroundMode.disable();
+    }
+    //check new
+    if (this.stringToBoolean(localStorage.getItem("push"))==true){
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    
+    fileTransfer.download(this.url+"check.php?id=new", this.file.dataDirectory + 'new.txt',true).then(_ =>{
+      this.file.readAsText(this.file.dataDirectory, 'new.txt').then(fileStr => {
+        if (fileStr=="1"){
+          this.localNotifications.schedule({
+            id: 1,
+            title: 'LifeSpeaker',
+            text: 'Novo pedido de ajuda!'
+          });          
+        }
+      }).catch(err => {
+      });
+    }).catch(err => {
+    });
+    //
     }
     setTimeout(() => {
       this.setBackground();

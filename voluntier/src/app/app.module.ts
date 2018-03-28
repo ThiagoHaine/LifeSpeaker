@@ -11,6 +11,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 //PLUGINS
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { Network } from '@ionic-native/network';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 //
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -39,6 +42,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     BackgroundMode,
+    FileTransfer,
+    File,
+    LocalNotifications,
     Network,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
