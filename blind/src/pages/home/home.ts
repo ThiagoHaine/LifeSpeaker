@@ -96,8 +96,8 @@ export class HomePage {
   public wait(n,id){
     const fileTransfer: FileTransferObject = this.transfer.create();
     
-    fileTransfer.download(this.url+"check.php?id="+id.toString(), this.file.dataDirectory + 'file.txt',true).then(_ =>{
-      this.file.readAsText(this.file.dataDirectory, 'file.txt').then(fileStr => {
+    fileTransfer.download(this.url+"check.php?id="+id.toString(), this.file.dataDirectory + 'file'+n.toString()+'.txt',true).then(_ =>{
+      this.file.readAsText(this.file.dataDirectory, 'file'+n.toString()+'.txt').then(fileStr => {
         if (fileStr=="nada"){
           setTimeout(() => {
             this.wait(n,id);
@@ -118,12 +118,12 @@ export class HomePage {
 
   }
 
-  public uploadImage() {
+  public uploadImage(n) {
     // Destination URL
     var url = this.url+"upload.php";
     const fileTransfer: FileTransferObject = this.transfer.create();
     // File for Upload
-    var targetPath = this.file.dataDirectory+"photo.jpg";
+    var targetPath = this.file.dataDirectory+"photo"+n.toString()+".jpg";
    
     // File name only
     this.id=Math.floor(Math.random()*1000);
@@ -140,14 +140,13 @@ export class HomePage {
     // Use the FileTransfer to upload the image
     fileTransfer.upload(targetPath, url, options).then(data => {
       this.speak("Agora é só aguardar uma resposta");
-      this.wait(this.n,this.id);
-      this.n++;
+      this.wait(n,this.id);
     }, err => {
       alert(JSON.stringify(err));
     });
   }
 
-public savebase64AsImageFile(content,contentType){
+public savebase64AsImageFile(content,contentType,n){
 
 let byteCharacters = atob(content);
 let byteArrays = [];
@@ -165,9 +164,9 @@ for (let offset = 0; offset < byteCharacters.length; offset += 512) {
 }
 
 let blob = new Blob(byteArrays, {type: contentType});
-this.file.createFile(this.file.dataDirectory, "photo.jpg", true);
-this.file.writeFile(this.file.dataDirectory, "photo.jpg", blob, {replace: true}).then(_ =>{
-  this.uploadImage();
+this.file.createFile(this.file.dataDirectory, "photo"+n.toString()+".jpg", true);
+this.file.writeFile(this.file.dataDirectory, "photo"+n.toString()+".jpg", blob, {replace: true}).then(_ =>{
+  this.uploadImage(n);
 }).catch(err => alert("erro de gravação"));
 
 
@@ -184,7 +183,8 @@ this.file.writeFile(this.file.dataDirectory, "photo.jpg", blob, {replace: true})
 
           // take a picture
           this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
-            this.savebase64AsImageFile(imageData,"image/jpeg");
+            this.savebase64AsImageFile(imageData,"image/jpeg",this.n);
+            this.n++;
           }, (err) => {
             alert(err);
           });
@@ -193,12 +193,13 @@ this.file.writeFile(this.file.dataDirectory, "photo.jpg", blob, {replace: true})
           const pictureOpts: CameraPreviewPictureOptions = {
             width: 1280,
             height: 1280,
-            quality: 85
+            quality: 80
           }
 
           // take a picture
           this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
-            this.savebase64AsImageFile(imageData,"image/jpeg");
+            this.savebase64AsImageFile(imageData,"image/jpeg",this.n);
+            this.n++;
           }, (err) => {
             alert(err);
           });
